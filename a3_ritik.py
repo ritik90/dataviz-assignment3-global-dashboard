@@ -3,7 +3,7 @@ from dash import Dash, dcc, html, Input, Output, State
 import dash
 import pandas as pd
 
-# Dataset (offline, no SSL)
+# Data
 df = pd.read_csv("gapminder.csv")
 df["gdp_per_cap"] = df["gdpPercap"]
 df["life_exp"] = df["lifeExp"]
@@ -16,13 +16,13 @@ continents = sorted(df["continent"].unique())
 app = Dash(__name__)
 app.title = "Global Development Explorer"
 
-# CSS injection (Dash-version safe)
+# CSS injection 
 GLOBAL_CSS = """
 /* Dropdown menu above everything */
 .Select, .Select-control, .Select-menu-outer { z-index: 9999 !important; }
 """
 
-# Fixed heights (prevents Plotly autosize loop)
+# Fixed heights 
 H_SCATTER = 420
 H_MAP = 420
 H_PC = 300
@@ -36,7 +36,7 @@ def card(title, content, subtitle=None):
             "borderRadius": "18px",
             "padding": "14px",
             "boxShadow": "0 12px 30px rgba(15, 23, 42, 0.10)",
-            "overflow": "visible",  # allow dropdown menu
+            "overflow": "visible",  
         },
         children=[
             html.Div(title, style={"fontWeight": "800", "fontSize": "12px", "color": "#0f172a"}),
@@ -123,7 +123,7 @@ app.layout = html.Div(
                     dcc.Dropdown(
                         id="continent",
                         options=[{"label": c, "value": c} for c in continents],
-                        value=[],  # empty = All (handled in callback)
+                        value=[],  
                         multi=True,
                         placeholder="All (no filter)",
                         style={"zIndex": 9999},
@@ -163,7 +163,7 @@ app.layout = html.Div(
             ],
         ),
 
-        # Main Grid (fixed chart heights => stable)
+        # Main Grid
         html.Div(
             style={
                 "display": "grid",
@@ -232,7 +232,7 @@ def store_selection(selectedData, n_clear, year, conts, topn, stored):
     if trig == "clear_sel":
         return []
 
-    # Changing filters clears selection (simpler + avoids stale selection)
+    # Changing filters clears selection 
     if trig in ("year", "continent", "topn"):
         return []
 
