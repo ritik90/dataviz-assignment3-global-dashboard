@@ -1,20 +1,9 @@
-# a3_ritik.py
-# FINAL — Stable coordinated multi-view dashboard (Gapminder, offline)
-# Fixes:
-# - No "expanding / going down" loop: graphs have fixed heights + debug=False
-# - Dropdown menu overlays properly (z-index + overflow visible)
-# - Light non-white background
-# - Lasso selection stays stable (no 2ms snap-back) using dcc.Store + selectedpoints
-# - Clear selection button
-
 import plotly.express as px
 from dash import Dash, dcc, html, Input, Output, State
 import dash
 import pandas as pd
 
-# =========================================================
 # Dataset (offline, no SSL)
-# =========================================================
 df = pd.read_csv("gapminder.csv")
 df["gdp_per_cap"] = df["gdpPercap"]
 df["life_exp"] = df["lifeExp"]
@@ -23,9 +12,7 @@ df["pop_m"] = df["pop"] / 1e6
 years = sorted(df["year"].unique())
 continents = sorted(df["continent"].unique())
 
-# =========================================================
 # App
-# =========================================================
 app = Dash(__name__)
 app.title = "Global Development Explorer"
 
@@ -227,9 +214,7 @@ app.layout = html.Div(
     ],
 )
 
-# =========================================================
 # Callback 1: Store lasso selection (prevents snap-back)
-# =========================================================
 @app.callback(
     Output("sel_countries", "data"),
     Input("scatter", "selectedData"),
@@ -251,9 +236,6 @@ def store_selection(selectedData, n_clear, year, conts, topn, stored):
     if trig in ("year", "continent", "topn"):
         return []
 
-    # Only update store when there IS a selection.
-    # IMPORTANT: if Plotly temporarily sends selectedData=None during rerender,
-    # we keep the previous store (so it won't snap back).
     if selectedData and selectedData.get("points"):
         countries = []
         for p in selectedData["points"]:
@@ -276,9 +258,7 @@ def store_selection(selectedData, n_clear, year, conts, topn, stored):
 
     return stored  # keep previous selection if selectedData is empty/None
 
-# =========================================================
 # Callback 2: Render charts using stored selection
-# =========================================================
 @app.callback(
     Output("scatter", "figure"),
     Output("map", "figure"),

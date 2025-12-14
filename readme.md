@@ -13,7 +13,6 @@ DATAVIZ_ASSIGNMENT3/
 5. readme.md # Project documentation
 
 
-
 ## How to Run (Step-by-Step)
 
 ### 1. Open a terminal in the project folder
