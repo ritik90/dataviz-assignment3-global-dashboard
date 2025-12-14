@@ -3,7 +3,6 @@
 This repository contains an interactive data visualization dashboard built using the Gapminder dataset.  
 The project focuses on exploring global development indicators using a coordinated multi-view design.
 
----
 
 ## Folder Structure
 DATAVIZ_ASSIGNMENT3/
@@ -14,7 +13,6 @@ DATAVIZ_ASSIGNMENT3/
 └── readme.md # Project documentation
 
 
----
 
 ## How to Run (Step-by-Step)
 
@@ -31,7 +29,7 @@ You should see:
 ### 2. Create and activate a virtual environment (recommended)
 
 **macOS / Linux**
-```bash
+```bash```
 python3 -m venv venv
 source venv/bin/activate
 
