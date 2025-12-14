@@ -6,11 +6,11 @@ The project focuses on exploring global development indicators using a coordinat
 
 ## Folder Structure
 DATAVIZ_ASSIGNMENT3/
-├── a3_ritik.py # Main Dash application
-├── dataset.ipynb # Notebook used for initial data exploration
-├── gapminder.csv # Gapminder dataset (loaded locally)
-├── requirements.txt # Python dependencies
-└── readme.md # Project documentation
+1. a3_ritik.py # Main Dash application
+2. dataset.ipynb # Notebook used for initial data exploration
+3. gapminder.csv # Gapminder dataset (loaded locally)
+4. requirements.txt # Python dependencies
+5. readme.md # Project documentation
 
 
 
