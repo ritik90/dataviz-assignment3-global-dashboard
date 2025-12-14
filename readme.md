@@ -56,3 +56,5 @@ Dashboard Overview
 5. Geographic location
 
 A coordinated multi-view layout is used, where interaction in one view (such as lasso selection in the scatter plot) updates all other views consistently.
+
+Thankyou for executing Assignment 3!
