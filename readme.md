@@ -1,3 +1,18 @@
+# DATAVIZ_ASSIGNMENT3 — Global Development Explorer
+
+This repository contains an interactive data visualization dashboard built using the Gapminder dataset.  
+The project focuses on exploring global development indicators using a coordinated multi-view design.
+
+---
+
+## Folder Structure
+DATAVIZ_ASSIGNMENT3/
+├── a3_ritik.py # Main Dash application
+├── dataset.ipynb # Notebook used for initial data exploration
+├── gapminder.csv # Gapminder dataset (loaded locally)
+├── requirements.txt # Python dependencies
+└── readme.md # Project documentation
+
 
 ---
 
@@ -24,6 +39,7 @@ source venv/bin/activate
 python -m venv venv
 venv\Scripts\Activate.ps1
 
+
 ### 3. Install required dependencies
 pip install -r requirements.txt
 
@@ -36,10 +52,10 @@ http://127.0.0.1:8060/
 
 Dashboard Overview
 
-The dashboard enables exploration of relationships between:
+1. The dashboard enables exploration of relationships between:
+2. GDP per capita
+3. Life expectancy
+4. Population
+5. Geographic location
 
-1. GDP per capita
-2. Life expectancy
-3. Population
-4. Geographic location
-5. A coordinated multi-view layout ensures that interactions in one view update all others consistently.
+A coordinated multi-view layout is used, where interaction in one view (such as lasso selection in the scatter plot) updates all other views consistently.
